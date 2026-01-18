@@ -12,8 +12,9 @@ DATA_URL = os.getenv(
     "https://raw.githubusercontent.com/abhshkdz/ai-deadlines/gh-pages/_data/conferences.yml",
 )
 
-#SLACK_BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
-#SLACK_CHANNEL_ID = os.environ["SLACK_CHANNEL_ID"]
+SLACK_BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
+SLACK_CHANNEL_ID = os.environ["SLACK_CHANNEL_ID"]
+print(SLACK_BOT_TOKEN)
 
 DEFAULT_WATCH = {
     "NeurIPS", "ICML", "ICLR",
