@@ -122,7 +122,8 @@ def main():
     confs = load_conferences()
     items = choose_next_deadlines(confs)
     msg = format_message(items)
-    post_to_slack(msg)
+    print(msg)
+#post_to_slack(msg)
 
 if __name__ == "__main__":
     main()
