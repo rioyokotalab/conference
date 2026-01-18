@@ -13,7 +13,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install deps
         run: pip install -r requirements.txt
@@ -22,7 +22,5 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
-          # Optional overrides:
-          # WATCH_TITLES: "NeurIPS,ICML,ICLR,CVPR,ACL,EMNLP"
-          # DAYS_AHEAD: "45"
-        run: python bot.py
+	run: echo "SLACK_BOT_TOKEN: ${#SLACK_BOT_TOKEN}"
+#run: python bot.py
