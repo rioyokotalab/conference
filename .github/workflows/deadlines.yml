@@ -22,7 +22,4 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
-	run: |
-          echo event=${{ github.event_name }}
-          echo fork=${{ github.event.pull_request.head.repo.fork || 'false' }}
-#run: python bot.py
+        run: python bot.py
