@@ -22,5 +22,5 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
-        run: echo "Hello"
+        run: echo "event=${{ github.event_name }}"
 #        run: python bot.py
