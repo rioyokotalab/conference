@@ -5,7 +5,7 @@ import requests
 import yaml
 from dateutil import parser, tz
 from slack_sdk import WebClient
-#from slack_sdk.errors import SlackApiError
+from slack_sdk.errors import SlackApiError
 
 DATA_URL = os.getenv(
     "DEADLINES_YAML_URL",
