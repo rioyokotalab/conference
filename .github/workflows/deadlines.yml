@@ -2,7 +2,7 @@ name: Slack AI deadlines bot
 
 on:
   schedule:
-    - cron: "0 2 * * 0"  # daily 13:00 UTC
+    - cron: "51 2 * * *"
   workflow_dispatch: {}
 
 jobs:
