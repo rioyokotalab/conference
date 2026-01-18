@@ -1,0 +1,28 @@
+name: Slack AI deadlines bot
+
+on:
+  schedule:
+    - cron: "0 13 * * *"  # daily 13:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          # Optional overrides:
+          # WATCH_TITLES: "NeurIPS,ICML,ICLR,CVPR,ACL,EMNLP"
+          # DAYS_AHEAD: "45"
+        run: python bot.py

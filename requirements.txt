@@ -1,0 +1,6 @@
+slack_sdk
+requests
+PyYAML
+python-dateutil
+requests
+huggingface_hub
