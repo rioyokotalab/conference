@@ -4,16 +4,16 @@ from datetime import datetime, timedelta
 import requests
 import yaml
 from dateutil import parser, tz
-from slack_sdk import WebClient
-from slack_sdk.errors import SlackApiError
+#from slack_sdk import WebClient
+#from slack_sdk.errors import SlackApiError
 
 DATA_URL = os.getenv(
     "DEADLINES_YAML_URL",
     "https://raw.githubusercontent.com/abhshkdz/ai-deadlines/gh-pages/_data/conferences.yml",
 )
 
-SLACK_BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
-SLACK_CHANNEL_ID = os.environ["SLACK_CHANNEL_ID"]
+#SLACK_BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
+#SLACK_CHANNEL_ID = os.environ["SLACK_CHANNEL_ID"]
 
 DEFAULT_WATCH = {
     "NeurIPS", "ICML", "ICLR",
@@ -111,19 +111,19 @@ def format_message(items):
     lines += ["", "_Always confirm on the official CFP page; deadlines move._"]
     return "\n".join(lines)
 
-def post_to_slack(text):
-    client = WebClient(token=SLACK_BOT_TOKEN)
-    try:
-        client.chat_postMessage(channel=SLACK_CHANNEL_ID, text=text)
-    except SlackApiError as e:
-        raise SystemExit(f"Slack API error: {e.response['error']}") from e
+#def post_to_slack(text):
+#    client = WebClient(token=SLACK_BOT_TOKEN)
+#    try:
+#        client.chat_postMessage(channel=SLACK_CHANNEL_ID, text=text)
+#    except SlackApiError as e:
+#        raise SystemExit(f"Slack API error: {e.response['error']}") from e
 
 def main():
     confs = load_conferences()
     items = choose_next_deadlines(confs)
     msg = format_message(items)
     print(msg)
-#post_to_slack(msg)
+#    post_to_slack(msg)
 
 if __name__ == "__main__":
     main()
