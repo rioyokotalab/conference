@@ -68,8 +68,8 @@ from slack_sdk.errors import SlackApiError
 # Global config
 # ----------------------------
 
-SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
-SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "")
+SLACK_BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
+SLACK_CHANNEL_ID = os.environ["SLACK_CHANNEL_ID"]
 
 DEBUG = os.getenv("DEBUG", "").strip().lower() in {"1", "true", "yes", "y"}
 DRY_RUN = os.getenv("DRY_RUN", "").strip().lower() in {"1", "true", "yes", "y"}
